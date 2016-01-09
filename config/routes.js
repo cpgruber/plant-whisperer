@@ -1,5 +1,6 @@
 var express = require('express');
 var usersController = require('../controllers/usersController');
+var passport = require('passport');
 var router = express.Router();
 
 router.route('/login')
@@ -8,10 +9,21 @@ router.route('/login')
 router.route('/logout')
   .get(usersController.logout)
 
-router.route("/")
+router.route('/')
   .get(function(req,res){
-    console.log("req");
-    res.send("Hello world")
+    res.redirect('/index')
   })
+
+router.route('/index')
+  .get(usersController.index)
+
+router.route('/auth/twitter')
+  .get(passport.authenticate('twitter'))
+
+router.route('/auth/twitter/callback')
+  .get(passport.authenticate('twitter', {
+    successRedirect: '/index',
+    failureRedirect: '/login'
+  }));
 
 module.exports = router;

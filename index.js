@@ -9,6 +9,8 @@ var passport = require("passport");
 var session = require("express-session");
 var router = require("./config/routes");
 
+require('./config/passport')(passport);
+
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -19,6 +21,22 @@ app.set('view engine', 'hbs');
 app.set("views","./views");
 
 app.use(router)
+
+app.use(session({ secret: 'fruitbat' }));
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
+//working middleware for routes starting with /profile
+// app.all('/chat*', checkUser);
+// function checkUser(req, res, next) {
+//   if (req.isAuthenticated()) return next();
+//   res.redirect('/login');
+// }
 
 app.listen(3000, function(){
   console.log('listening on *:3000');
