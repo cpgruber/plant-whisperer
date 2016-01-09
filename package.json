@@ -1,0 +1,17 @@
+{
+  "name": "plant-whisperer",
+  "version": "1.0.0",
+  "description": "Have your plants tweet at you",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chase Gruber",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.3",
+    "twit": "^2.1.1"
+  }
+}
