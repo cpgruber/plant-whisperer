@@ -11,10 +11,10 @@ router.route('/logout')
 
 router.route('/')
   .get(function(req,res){
-    res.redirect('/index')
+    res.redirect('/users')
   })
 
-router.route('/index')
+router.route('/users')
   .get(usersController.index)
 
 router.route('/auth/twitter')
@@ -22,7 +22,7 @@ router.route('/auth/twitter')
 
 router.route('/auth/twitter/callback')
   .get(passport.authenticate('twitter', {
-    successRedirect: '/index',
+    successRedirect: '/users',
     failureRedirect: '/login'
   }));
 

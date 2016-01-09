@@ -6,6 +6,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </head>
   <body>
+    {{#if currentUser}}
+    <header>
+      <h2>Welcome, {{currentUser.twitter.username}}!</h2>
+      {{#if currentUser}}
+        <a href="/logout">Logout</a>
+      {{/if}}
+    </header>
+    {{/if}}
      {{{body}}}
   </body>
 </html>

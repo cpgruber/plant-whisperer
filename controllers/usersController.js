@@ -1,5 +1,14 @@
 var usersController = {
   login: function(req,res){
+    // console.log(req.user);
+    // if (req.session.passport){
+    //   req.logout();
+    //   req.session.destroy();
+    // }
+    // console.log("*************")
+    // console.log(req.session)
+    // req.logout();
+    // req.session.destroy();
     res.render("login");
   },
   logout: function(req,res){
