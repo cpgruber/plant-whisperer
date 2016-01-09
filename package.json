@@ -9,7 +9,14 @@
   "author": "Chase Gruber",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.14.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "hbs": "^4.0.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.5",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.3",
     "twit": "^2.1.1"
