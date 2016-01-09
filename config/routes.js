@@ -1,5 +1,6 @@
 var express = require('express');
 var usersController = require('../controllers/usersController');
+var plantsController = require('../controllers/plantsController');
 var passport = require('passport');
 var router = express.Router();
 
@@ -13,6 +14,9 @@ router.route('/')
   .get(function(req,res){
     res.redirect('/users')
   })
+
+router.route("/plants.json")
+  .get(plantsController.read)
 
 router.route('/users')
   .get(usersController.index)
