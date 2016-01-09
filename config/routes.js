@@ -15,8 +15,9 @@ router.route('/')
     res.redirect('/users')
   })
 
-router.route("/plants.json")
-  .get(plantsController.read)
+router.route("/plants:format")
+  .get(plantsController.getPlants)
+  .post(plantsController.addPlant)
 
 router.route('/users')
   .get(usersController.index)
