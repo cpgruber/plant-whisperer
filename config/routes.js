@@ -15,9 +15,14 @@ router.route('/')
     res.redirect('/users')
   })
 
-router.route("/plants:format")
+router.route("/plants")
   .get(plantsController.getPlants)
   .post(plantsController.addPlant)
+
+router.route("/plants/:id")
+  .get(plantsController.getPlant)
+  .put(plantsController.updatePlant)
+  .delete(plantsController.deletePlant)
 
 router.route('/users')
   .get(usersController.index)

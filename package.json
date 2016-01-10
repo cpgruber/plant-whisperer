@@ -17,9 +17,11 @@
     "fs": "0.0.2",
     "hbs": "^4.0.0",
     "method-override": "^2.3.5",
+    "moment": "^2.11.1",
     "mongoose": "^4.3.5",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.3",
+    "time": "^0.11.4",
     "twit": "^2.1.1"
   }
 }

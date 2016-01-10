@@ -1,7 +1,6 @@
 var fs = require("fs");
-// var env = fs.existsSync("../env.js") ? require("../env") : process.env;
-// console.log(env);
-var env = require("../env.js");
+var env = fs.existsSync("./env.js") ? require("../env") : process.env;
+var Twit = require("twit");
 var TwitterStrategy = require('passport-twitter').Strategy;
 var User = require('../models/user');
 
@@ -12,7 +11,6 @@ module.exports = function(passport){
     callbackURL: env.callback
   }, function(token, secret, profile, done){
     process.nextTick(function(){
-      console.log(profile)
       User.findOne({'twitter.id': profile.id}, function(err, user){
         if(err) return done(err);
         // If the user already exists, just return that user.
