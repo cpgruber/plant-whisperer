@@ -53,7 +53,8 @@ var plantsController = {
   deletePlant: function(req,res){
     Plant.remove({_id: req.params.id}, function(err){
        if(!err){
-         res.redirect("/users")
+         res.json({deleted:true})
+        //  res.redirect("/users")
        }
      })
   }
