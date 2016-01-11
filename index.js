@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
 });
 
 // working middleware for routes starting with /profile
-app.all('/users*', checkUser);
+app.all('/^(?!login$).*', checkUser);
 function checkUser(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect('/login');
