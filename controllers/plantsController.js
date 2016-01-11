@@ -26,7 +26,7 @@ var plantsController = {
         frequency: req.body.freq,
         last_water: moment(req.body.last_water),
         next_water: moment(req.body.last_water).add(req.body.freq, 'days'),
-        outdoors: true,
+        outdoors: req.body.outdoors,
         owner: req.user.twitter.username
       }
       var newPlant = new Plant(plantObj);
