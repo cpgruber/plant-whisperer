@@ -1,0 +1,8 @@
+<h2>New Plant</h2>
+<div data-plant-form data-plant="PlantIndexViewModel.newPlant"></div>
+
+<h2>These are all the Plants</h2>
+
+<div data-ng-repeat="plant in PlantIndexViewModel.plants | orderBy:'-created_at'">
+  <p><a data-ui-sref="plantShow({id: plant._id})">{{plant.type}}</a></p>
+</div>

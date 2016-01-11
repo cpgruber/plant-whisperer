@@ -23,9 +23,9 @@ var plantsController = {
       var plantObj = {
         createdAt: Date(),
         type:req.body.type,
-        frequency: req.body.freq,
+        frequency: req.body.frequency,
         last_water: moment(req.body.last_water),
-        next_water: moment(req.body.last_water).add(req.body.freq, 'days'),
+        next_water: moment(req.body.last_water).add(req.body.frequency, 'days'),
         outdoors: req.body.outdoors,
         owner: req.user.twitter.username
       }
