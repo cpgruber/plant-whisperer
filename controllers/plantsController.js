@@ -44,7 +44,7 @@ var plantsController = {
   updatePlant: function(req,res){
     Plant.findById(req.params.id, function(err, plant){
       plant.type = req.body.type;
-      plant.frequency = req.body.freq;
+      plant.frequency = req.body.frequency;
       plant.last_water = req.body.last_water;
       plant.save(function(err){
         if(!err){

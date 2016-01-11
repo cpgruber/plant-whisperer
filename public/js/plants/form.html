@@ -5,6 +5,7 @@
   <input type="checkbox" name="outdoors" data-ng-model="plant.outdoors" />
   <button type="button" data-ng-if="!plant._id" data-ng-click="create()">Create</button>
   <div data-ng-if="plant._id">
+    <button type="button" data-ng-click="cancel()">cancel</button>
     <button type="button" data-ng-click="update()">Update</button>
     <button type="button" data-ng-click="delete()">Delete</button>
   </div>

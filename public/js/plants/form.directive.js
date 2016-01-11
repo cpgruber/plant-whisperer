@@ -30,6 +30,9 @@
           scope.plant.$delete({id: scope.plant._id}, function(){
             $state.go("plantsIndex", {}, {reload: true});
           });
+        },
+        scope.cancel = function(){
+          $state.go("plantsIndex", {}, {reload: true});
         }
       }
     }
