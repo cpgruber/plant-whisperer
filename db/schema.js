@@ -9,7 +9,9 @@ var PlantSchema = new Schema({
   type: String,
   frequency: Number,
   last_water: Date,
-  next_water: Date
+  next_water: Date,
+  outdoors: Boolean,
+  owner: String
 });
 
 var UserSchema = new Schema({

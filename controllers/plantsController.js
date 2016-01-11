@@ -1,5 +1,6 @@
 var User = require("../models/user");
 var Plant = require("../models/plant");
+var moment = require("moment");
 
 var plantsController = {
   getPlants: function(req,res){
@@ -23,8 +24,10 @@ var plantsController = {
         createdAt: Date(),
         type:req.body.type,
         frequency: req.body.freq,
-        last_water: req.body.last_water,
-        next_water: Date()
+        last_water: moment(req.body.last_water),
+        next_water: moment(req.body.last_water).add(req.body.freq, 'days'),
+        outdoors: true,
+        owner: req.user.twitter.username
       }
       var newPlant = new Plant(plantObj);
       user.plants.push(newPlant._id);
