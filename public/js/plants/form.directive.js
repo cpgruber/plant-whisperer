@@ -24,6 +24,7 @@
         scope.update = function(){
           scope.plant.$update({id: scope.plant._id}, function(response){
             console.log(response);
+            $state.go("plantsIndex", {}, {reload: true});
           });
         }
         scope.delete = function(){

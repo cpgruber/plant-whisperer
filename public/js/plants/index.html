@@ -5,4 +5,7 @@
 
 <div data-ng-repeat="plant in PlantIndexViewModel.plants | orderBy:'-created_at'">
   <p><a data-ui-sref="plantShow({id: plant._id})">{{plant.type}}</a></p>
+  <p>Watering Freq: {{plant.frequency}}</p>
+  <p>Last Watered: {{plant.last_water}}</p>
+  <p>Outdoors? {{plant.outdoors}}</p>
 </div>
