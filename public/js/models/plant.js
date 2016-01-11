@@ -4,17 +4,34 @@ var Plant = function(params){
   this.last_water = params.last_water;
   this.next_water = params.next_water;
 }
-Plant.all = [];
+
 Plant.fetch = function(){
   return $.getJSON("http://127.0.0.1:3000/plants")
     .then(function(plants){
+      var plantsArray = [];
       plants.forEach(function(plant){
-        Plant.all.push(new Plant(plant));
+        plantsArray.push(new Plant(plant));
       })
+      return plantsArray;
     })
     .fail(function(err){
       console.log("js failed")
     })
+}
+
+Plant.create = function(plantData){
+  var self = this;
+  console.log(plantData)
+  var url = "http://127.0.0.1:3000/plants";
+  return request = $.ajax({
+    url: url,
+    method: "post",
+    data: JSON.stringify(plantData),
+    contentType : 'application/json'
+  }).then(function(plant) {
+    var newP = new Plant(plant);
+    return newP;
+  });
 }
 
 Plant.prototype = {
@@ -26,7 +43,9 @@ Plant.prototype = {
       data: JSON.stringify(plantData),
       contentType : "application/json"
     }).then(function(newInfo){
+      console.log(newInfo)
       console.log("this is new info")
+      return newInfo;
     })
   },
   destroy: function() {
@@ -36,42 +55,3 @@ Plant.prototype = {
     return request;
   }
 }
-
-// Artist.prototype = {
-//   fetchSongs: function(){
-//     var artist = this;
-//     var url = "http://localhost:3000/artists/" + artist.id + "/songs";
-//     artist.songs = [];
-//     var request = $.getJSON(url).then(function(response){
-//       for(var i = 0; i < response.length; i++){
-//         artist.songs.push(new Song(response[i]));
-//       }
-//     }).fail(function(repsonse){
-//       console.log("js failed to load");
-//     });
-//     return request;
-//   },
-//   update: function(artistData) {
-//     var self = this;
-//     var url = "http://localhost:3000/artists/" + self.id;
-//     var request = $.ajax({
-//       url: url,
-//       method: "patch",
-//       data: JSON.stringify(artistData),
-//       contentType : 'application/json'
-//     }).then(
-//       function(updatedArtistInfo) {self.reload(updatedArtistInfo);}
-//     );
-//     return request;
-//   },
-//   destroy: function() {
-//     var url = "http://localhost:3000/artists/" + this.id;
-//     var request = $.ajax( {url: url, method: "delete"} );
-//     return request;
-//   },
-//   reload: function(newData){
-//     for(var attrname in newData) {
-//       this[attrname] = newData[attrname];
-//     }
-//   }
-// };

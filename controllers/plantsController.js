@@ -31,7 +31,7 @@ var plantsController = {
       user.save();
       newPlant.save(function(err){
         if (!err){
-          res.redirect("/plants.json")
+          res.json(newPlant)
         }else{
           console.log(err)
         }
@@ -45,7 +45,7 @@ var plantsController = {
       plant.last_water = req.body.last_water;
       plant.save(function(err){
         if(!err){
-          res.json("/plants/" + req.params.id)
+          res.json(plant)
         }
       })
     })
