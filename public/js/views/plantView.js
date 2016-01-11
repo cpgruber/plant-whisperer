@@ -6,12 +6,9 @@ var PlantView = function(plant){
 
 PlantView.prototype = {
   render: function(){
-    this.$el.html("<p>"+this.plant.type+"</p><button class='edit'>Edit</button>");
-    var btn = this.$el.find(".edit").on("click", function(){
-      this.$el.html(this.renderEditForm())
-    }.bind(this))
-    var submit = this.$el.find(".edit-submit").on("click",function(){
-      this.update()
+    this.$el.html(this.plantTemplate());
+    this.$el.find(".editPlant").on("click", function(){
+      this.renderEditForm();
     }.bind(this))
   },
   update: function(){
@@ -40,7 +37,7 @@ PlantView.prototype = {
     var plant = this.plant;
     var html = $("<div>");
     html.append("<h3>" + plant.type + "</h3>");
-    html.append("<button class='editPlant'>Edit Artist</button>");
+    html.append("<button class='editPlant'>Edit Plant</button>");
     return(html);
   },
   plantEditTemplate: function() {
