@@ -2,7 +2,7 @@
   <input type="text" name="type" data-ng-model="plant.type" />
   <input type="integer" name="frequency" data-ng-model="plant.frequency" />
   <!-- <input data-date-input type="text" data-ng-model="plant.last_water"> -->
-  <input type="string" name="last_water" data-ng-model="plant.last_water"/>
+  <input type="date" name="last_water" data-ng-model="plant.last_water"/>
   <input type="checkbox" name="outdoors" data-ng-model="plant.outdoors" />
   <button type="button" data-ng-if="!plant._id" data-ng-click="create()">Create</button>
   <div data-ng-if="plant._id">
