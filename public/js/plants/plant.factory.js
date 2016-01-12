@@ -9,7 +9,7 @@
   ]);
 
   function PlantFactoryFunction($resource){
-    return $resource("http://127.0.0.1:3000/plants/:id", {}, {
+    return $resource("http://127.0.0.1:3000/plants/:id.json", {}, {
       update: {method: "PUT"}
     });
   }

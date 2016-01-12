@@ -12,19 +12,19 @@ router.route('/logout')
 
 router.route('/')
   .get(function(req,res){
-    res.redirect('/users')
+    res.redirect('/plants')
   })
 
-router.route("/plants")
+router.route("/plants.json")
   .get(plantsController.getPlants)
   .post(plantsController.addPlant)
 
-router.route("/plants/:id")
+router.route("/plants/:id.json")
   .get(plantsController.getPlant)
   .put(plantsController.updatePlant)
   .delete(plantsController.deletePlant)
 
-router.route('/users')
+router.route('/plants')
   .get(usersController.index)
 
 router.route('/auth/twitter')
@@ -32,7 +32,7 @@ router.route('/auth/twitter')
 
 router.route('/auth/twitter/callback')
   .get(passport.authenticate('twitter', {
-    successRedirect: '/users',
+    successRedirect: '/plants',
     failureRedirect: '/login'
   }));
 
