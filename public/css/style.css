@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Hammersmith+One);
+
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Hammersmith One', 'Garamond', serif;
+}
+.cf:after{
+  clear:both;
+  content:'';
+  display:table;
+}
+h1,h2{
+  text-align: center;
+}
+h2 span{
+  float:left;
+}
+h2 a{
+  float:right;
+}
+.main-img{
+  height:100%;
+  width:100%;
+}
+.login{
+  float:none;
+  text-align: center;
+}
+header,main,footer{
+  position:relative;
+  width:80%;
+  margin:0 auto;
+}
+footer{
+  text-align: center;
+  margin-top:3em;
+}
+form{
+  text-align: center;
+}
