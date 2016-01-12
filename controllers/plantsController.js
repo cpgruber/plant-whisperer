@@ -57,10 +57,21 @@ var plantsController = {
   },
   deletePlant: function(req,res){
     Plant.remove({_id: req.params.id}, function(err){
-       if(!err){
-         res.json({deleted:true})
-       }
-     })
+      if(!err){
+        User.findById(req.user._id, function(err,user){
+          if(!err){
+            var index = user.plants.indexOf(req.params.id)
+            user.plants.splice(index,1)
+            user.save(function(err){
+              if(!err){
+                console.log("index of deleted plant is " +index)
+                res.json({deleted:true})
+              }
+            })
+          }
+        })
+      }
+    })
   }
 }
 
