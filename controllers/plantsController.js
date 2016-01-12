@@ -46,6 +46,8 @@ var plantsController = {
       plant.type = req.body.type;
       plant.frequency = req.body.frequency;
       plant.last_water = req.body.last_water;
+      plant.next_water= moment(req.body.last_water).add(req.body.frequency, 'days');
+      plant.outdoors= req.body.outdoors?req.body.outdoors:false;
       plant.save(function(err){
         if(!err){
           res.json(plant)
