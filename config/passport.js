@@ -21,9 +21,8 @@ module.exports = function(passport){
             return done(null, user);
           })
         } else {
-          // Otherwise, create a brand new user using information passed from GH.
+          // Otherwise, create a brand new user using information passed from twitter.
           var newUser = new User();
-          // Here we're saving information passed to us from GH.
           newUser.twitter.id = profile.id;
           newUser.twitter.token = token;
           newUser.twitter.username = profile.username;

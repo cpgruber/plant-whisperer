@@ -29,5 +29,4 @@ Plant.find({'next_water':{
 })
 
 //find all plants with next_water after now, tweet at the owners of those plants;
-
 //Plant.find({next_water})

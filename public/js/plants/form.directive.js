@@ -16,9 +16,6 @@
         plant: "="
       },
       link: function(scope){
-        // console.log(scope)
-        // console.log(scope.plant)
-        // console.log(scope.plant.last_water)
         scope.create = function(){
           scope.plant.$save(function(response){
             $state.go("plantsIndex", {}, {reload: true});
