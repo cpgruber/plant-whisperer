@@ -1,6 +1,5 @@
 var fs = require("fs");
 var env = fs.existsSync("./env.js") ? require("../env") : process.env;
-var Twit = require("twit");
 var TwitterStrategy = require('passport-twitter').Strategy;
 var User = require('../models/user');
 

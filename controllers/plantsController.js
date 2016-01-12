@@ -25,7 +25,7 @@ var plantsController = {
         type:req.body.type,
         frequency: req.body.frequency,
         last_water: moment(req.body.last_water),
-        next_water: moment(req.body.last_water).add(req.body.frequency, 'days'),
+        next_water: moment(req.body.last_water).add(req.body.frequency,'minutes'),
         outdoors: req.body.outdoors?req.body.outdoors:false,
         owner: req.user.twitter.username
       }
@@ -57,10 +57,21 @@ var plantsController = {
   },
   deletePlant: function(req,res){
     Plant.remove({_id: req.params.id}, function(err){
-       if(!err){
-         res.json({deleted:true})
-       }
-     })
+      if(!err){
+        User.findById(req.user._id, function(err,user){
+          if(!err){
+            var index = user.plants.indexOf(req.params.id)
+            user.plants.splice(index,1)
+            user.save(function(err){
+              if(!err){
+                console.log("index of deleted plant is " +index)
+                res.json({deleted:true})
+              }
+            })
+          }
+        })
+      }
+    })
   }
 }
 
