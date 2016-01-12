@@ -1,9 +1,20 @@
 <form>
-  <input type="text" name="type" data-ng-model="plant.type" />
-  <input type="integer" name="frequency" data-ng-model="plant.frequency" />
-  <!-- <input data-date-input type="text" data-ng-model="plant.last_water"> -->
-  <input type="date" name="last_water" data-ng-model="plant.last_water"/>
-  <input type="checkbox" name="outdoors" data-ng-model="plant.outdoors" />
+  <fieldset>
+    <label for="type">Plant Type:</label>
+    <input type="text" name="type" data-ng-model="plant.type" />
+  </fieldset>
+  <fieldset>
+    <label for="type">Watering Frequency:</label>
+    <input type="integer" name="frequency" data-ng-model="plant.frequency" />
+  </fieldset>
+  <fieldset>
+    <label for="type">Last Watered:</label>
+    <input type="date" name="last_water" data-ng-model="plant.last_water"/>
+  </fieldset>
+  <fieldset>
+    <label for="type">Outdoors?</label>
+    <input type="checkbox" name="outdoors" data-ng-model="plant.outdoors" />
+  </fieldset>
   <button type="button" data-ng-if="!plant._id" data-ng-click="create()">Create</button>
   <div data-ng-if="plant._id">
     <button type="button" data-ng-click="cancel()">cancel</button>

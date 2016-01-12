@@ -37,6 +37,18 @@ footer{
   text-align: center;
   margin-top:3em;
 }
-form{
+/*form{
   text-align: center;
+}*/
+form{
+  /*border:1px solid red;*/
+  width:auto;
+  display:inline-block;
+}
+form label{
+  /*border:1px solid blue;*/
+}
+form input{
+  float:right;
+  width:160px;
 }
