@@ -1,39 +1,43 @@
-@import url(https://fonts.googleapis.com/css?family=Hammersmith+One);
+@import url(https://fonts.googleapis.com/css?family=Comfortaa);
+body {
+  background: #edcbb1;
+  font-family: "Comfortaa", "Arial", sans-serif;
+  color: #b7245c; }
 
-*{
-  box-sizing: border-box;
-}
-body{
-  font-family: 'Hammersmith One', 'Garamond', serif;
-}
-.cf:after{
-  clear:both;
-  content:'';
-  display:table;
-}
-h1,h2{
-  text-align: center;
-}
-h2 span{
-  float:left;
-}
-h2 a{
-  float:right;
-}
-.main-img{
-  height:100%;
-  width:100%;
-}
-.login{
-  float:none;
-  text-align: center;
-}
-header,main,footer{
-  position:relative;
-  width:80%;
-  margin:0 auto;
-}
-footer{
-  text-align: center;
-  margin-top:3em;
-}
+header, main, footer {
+  width: 80%;
+  margin: 0 auto; }
+
+header:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+main h1 {
+  font-size: 4em; }
+main h2 {
+  text-align: center; }
+main a, main a:active,
+main a:focus,
+main a:hover,
+main a:link,
+main a:target,
+main a:visited {
+  color: #7c3238; }
+
+footer {
+  padding: 20px;
+  text-align: center; }
+
+h1 {
+  text-align: center; }
+
+h2 a {
+  text-align: center; }
+
+.cf:after {
+  clear: both;
+  content: '';
+  display: table; }
+
+/*# sourceMappingURL=style.css.map */

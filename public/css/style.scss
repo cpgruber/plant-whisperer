@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=Comfortaa);
+$color1: #002500; //rgba(0, 37, 0, 100)
+$color2: #929982; //rgba(146, 153, 130, 100)
+$color3: #edcbb1; //rgba(237, 203, 177, 100)
+$color4: #b7245c; //rgba(183, 36, 92, 100)
+$color5: #7c3238; //rgba(124, 50, 56, 100)
+
+$mainFonts:'Comfortaa', 'Arial',sans-serif;
+$secondFonts: 'Times',serif;
+
+@mixin clearfix{
+  &:after {
+    content: "";
+    display:table;
+    clear: both;
+  }
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+body{
+  background:$color3;
+  font-family: $mainFonts;
+  color:$color4;
+}
+header,main,footer{
+  width:80%;
+  margin:0 auto;
+}
+header{
+  @include clearfix;
+}
+main{
+  h1{
+    font-size: 4em;
+  }
+  h2{
+    text-align: center;
+  }
+  a,a:active,
+  a:focus,
+  a:hover,
+  a:link,
+  a:target,
+  a:visited{
+    color:$color5;
+  }
+}
+footer{
+  padding:20px;
+  text-align: center;
+}
+
+
+
+h1{
+  text-align: center;
+}
+h2 a{
+  text-align: center;
+}
+.cf:after{
+  clear:both;
+  content:'';
+  display:table;
+}
