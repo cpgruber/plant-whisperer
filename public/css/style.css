@@ -15,13 +15,9 @@ a:visited {
 h1 {
   text-align: center; }
 
-header, main, footer {
-  width: 80%;
-  margin: 0 auto; }
-
 header {
   font-size: 2em;
-  padding-top: 1em; }
+  margin: 1em auto; }
   header:after {
     content: "";
     display: table;
@@ -39,10 +35,6 @@ main h1 {
   font-size: 4em; }
 main h2 {
   text-align: center; }
-main .columns {
-  width: 50%;
-  display: inline-block;
-  float: left; }
 
 footer {
   margin-top: 3em;
@@ -50,50 +42,80 @@ footer {
   text-align: center; }
 
 .form-container {
-  position: relative;
-  min-width: 160px;
-  max-width: 320px;
-  margin: 0 auto;
   font-size: 1.4em;
-  padding: 10px; }
+  padding: 10px;
+  text-align: center; }
   .form-container label {
-    display: block;
-    padding-left: 1em; }
+    display: block; }
   .form-container input {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     border-radius: 5px;
+    border: none;
     width: 100%;
-    line-height: 1.6em;
-    margin-bottom: 1em;
-    min-width: 160px;
-    max-width: 320px; }
+    max-width: 15em;
+    line-height: 1.6em; }
+    .form-container input[name=frequency] {
+      width: 3.5em; }
+    .form-container input[name=last_water] {
+      width: 10em; }
+    .form-container input[name=zipcode] {
+      width: 7em; }
     .form-container input[name=outdoors] {
-      width: 20px;
-      height: 20px;
-      vertical-align: top; }
+      width: 1em;
+      vertical-align: middle; }
+  .form-container select {
+    margin: 0;
+    vertical-align: top; }
   .form-container button {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     border-radius: 5px;
-    padding: 3px;
+    padding: 8px;
     display: block;
+    margin: 0 auto;
+    line-height: 1em;
+    vertical-align: middle;
+    background: #5e6451;
+    color: white; }
+    .form-container button[disabled=disabled] {
+      background: #929982; }
+  .form-container .invalid {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    background: #e88caf;
+    color: #7c3238;
+    font-size: 0.8em;
+    display: block;
+    width: 80%;
     margin: 0 auto; }
+    .form-container .invalid:before {
+      content: '^'; }
+    .form-container .invalid:after {
+      content: '^'; }
 
 .plant-info {
   padding: 10px; }
   .plant-info p {
-    font-size: 1.4em; }
+    font-size: 1.2em;
+    margin: 0; }
     .plant-info p a {
-      float: right; }
+      margin-left: 0.8em;
+      font-size: 0.6em; }
+      .plant-info p a:before {
+        content: '('; }
+      .plant-info p a:after {
+        content: ')'; }
   .plant-info .plant-name {
     font-size: 1.8em;
     color: #7c3238; }
 
 .no-plants img {
-  height: 360px; }
+  width: 100%; }
 .no-plants p {
   text-align: center;
   font-size: 1.4em; }

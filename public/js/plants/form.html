@@ -1,20 +1,20 @@
 <form name="plantForm">
   <fieldset>
-    <label for="type">Plant Type:</label>
-    <input required type="text" name="type" data-ng-model="plant.type" />
-    <span data-ng-show="plantForm.type.$dirty && plantForm.type.$invalid">
+    <label for="type">Plant Name:</label>
+    <input required type="text" name="type" data-ng-model="plant.type" placeholder="Scientific, common, or pet."/>
+    <span class='invalid' data-ng-show="plantForm.type.$dirty && plantForm.type.$invalid">
       <span data-ng-show="plantForm.type.$error.required">Plant Type is required.</span>
     </span>
   </fieldset>
   <fieldset>
     <label for="frequency">Watering Frequency:</label>
     Every
-    <input required type="number" name="frequency" data-ng-model="plant.frequency" data-ng-minlength="1" data-ng-maxlength="2"/>
+    <input required type="number" name="frequency" data-ng-model="plant.frequency" data-ng-minlength="1" data-ng-maxlength="2"placeholder="10"/>
     <select required name="interval" data-ng-model="plant.interval" data-ng-init="plant.interval = 'days'">
       <option value="days">days</option>
       <option value="weeks">weeks</option>
     </select>
-    <span data-ng-show="plantForm.frequency.$dirty && plantForm.frequency.$invalid">
+    <span class='invalid' data-ng-show="plantForm.frequency.$dirty && plantForm.frequency.$invalid">
       <span data-ng-show="plantForm.frequency.$error.required">Watering frequency is required.</span>
       <span data-ng-show="plantForm.frequency.$error.minlength">Too short!</span>
       <span data-ng-show="plantForm.frequency.$error.maxlength">Too long!</span>
@@ -23,8 +23,17 @@
   <fieldset>
     <label for="last_water">Last Watered:</label>
     <input required type="date" name="last_water" data-ng-model="plant.last_water"/>
-    <span data-ng-show="plantForm.last_water.$dirty && plantForm.last_water.$invalid">
+    <span class='invalid' data-ng-show="plantForm.last_water.$dirty && plantForm.last_water.$invalid">
       <span data-ng-show="plantForm.last_water.$error.required">Last Watered date is required. (It's ok to guess)</span>
+    </span>
+  </fieldset>
+  <fieldset>
+    <label for="zipcode">Zipcode:</label>
+    <input required type="number" name="zipcode" data-ng-model="plant.zipcode" data-ng-minlength="5" data-ng-maxlength="5"/>
+    <span class='invalid' data-ng-show="plantForm.zipcode.$dirty && plantForm.zipcode.$invalid">
+      <span data-ng-show="plantForm.zipcode.$error.required">Zipcode is required.</span>
+      <span data-ng-show="plantForm.zipcode.$error.minlength">Too short!</span>
+      <span data-ng-show="plantForm.zipcode.$error.maxlength">Too long!</span>
     </span>
   </fieldset>
   <fieldset>
@@ -33,15 +42,7 @@
       Outdoors?
     </label>
   </fieldset>
-  <fieldset>
-    <label for="zipcode">Zipcode:</label>
-    <input required type="number" name="zipcode" data-ng-model="plant.zipcode" data-ng-minlength="5" data-ng-maxlength="5"/>
-    <span data-ng-show="plantForm.zipcode.$dirty && plantForm.zipcode.$invalid">
-      <span data-ng-show="plantForm.zipcode.$error.required">Zipcode is required.</span>
-      <span data-ng-show="plantForm.zipcode.$error.minlength">Too short!</span>
-      <span data-ng-show="plantForm.zipcode.$error.maxlength">Too long!</span>
-    </span>
-  </fieldset>
+
   <button type="button" data-ng-if="!plant._id" data-ng-click="create()" ng-disabled="plantForm.$invalid">Create</button>
   <div data-ng-if="plant._id">
     <button type="button" data-ng-click="cancel()">cancel</button>

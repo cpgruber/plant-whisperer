@@ -59,14 +59,10 @@ a:visited{
 h1{
   text-align: center;
 }
-header,main,footer{
-  width:80%;
-  margin:0 auto;
-}
 header{
   @include clearfix;
   font-size: 2em;
-  padding-top:1em;
+  margin:1em auto;
   div{
     display:inline-block;
     &:last-of-type{
@@ -82,56 +78,86 @@ main{
   h2{
     text-align: center;
   }
-  .columns{
-    width:50%;
-    display:inline-block;
-    float:left;
-  }
 }
 footer{
   margin-top:3em;
   padding:20px;
   text-align: center;
 }
-
 .form-container{
-  position:relative;
-  min-width:160px;
-  max-width: 320px;
-  margin:0 auto;
   font-size: 1.4em;
   padding:10px;
+  text-align: center;
   label{
     display:block;
-    padding-left:1em;
   }
   input{
     @include border-radius(5px);
+    border:none;
     width:100%;
+    max-width: 15em;
     line-height: 1.6em;
-    margin-bottom:1em;
-    min-width:160px;
-    max-width:320px;
-    &[name=outdoors]{
-      width:20px;
-      height:20px;
-      vertical-align: top;
+    &[name=frequency]{
+      width:3.5em;
     }
+    &[name=last_water]{
+      width:10em;
+    }
+    &[name=zipcode]{
+      width:7em;
+    }
+    &[name=outdoors]{
+      width:1em;
+      vertical-align: middle;
+    }
+  }
+  select{
+    margin:0;
+    vertical-align: top;
   }
   button{
     @include border-radius(5px);
-    padding:3px;
+    padding:8px;
     display:block;
     margin:0 auto;
+    line-height: 1em;
+    vertical-align: middle;
+    background:darken($color2, 20);
+    color:white;
+    &[disabled=disabled]{
+      background: $color2;
+    }
+  }
+  .invalid{
+    @include border-radius(5px);
+    background:lighten($color4,30);
+    color:$color5;
+    font-size: 0.8em;
+    display: block;
+    width:80%;
+    margin:0 auto;
+    &:before{
+      content:'^';
+    }
+    &:after{
+      content:'^';
+    }
   }
 }
-
 .plant-info{
   padding:10px;
   p{
-    font-size: 1.4em;
+    font-size: 1.2em;
+    margin:0;
     a{
-      float:right;
+      margin-left:0.8em;
+      font-size:0.6em;
+      &:before{
+        content:'(';
+      }
+      &:after{
+        content:')';
+      }
     }
   }
   .plant-name{
@@ -139,10 +165,9 @@ footer{
     color:$color5;
   }
 }
-
 .no-plants{
   img{
-    height:360px;
+    width:100%;
   }
   p{
     text-align: center;

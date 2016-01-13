@@ -1,8 +1,4 @@
 <div class='six columns'>
-  <h2>Add Plant:</h2>
-  <div class='form-container' data-plant-form data-plant="PlantIndexViewModel.newPlant"></div>
-</div>
-<div class='six columns'>
   <h2>Your Plants:</h2>
   <div class='no-plants' data-ng-show="PlantIndexViewModel.plants.length==0">
     <p>You have no plants.</p>
@@ -11,8 +7,12 @@
   <div class='plant-info' data-ng-repeat="plant in PlantIndexViewModel.plants | orderBy:'-next_water'">
     <p class='plant-name'>{{plant.type}}<a data-ui-sref="plantShow({id: plant._id})">Edit</a></p>
     <p>Watering Freq: Every {{plant.frequency}} {{plant.interval}}</p>
-    <p>Last Watered: {{plant.last_water|date:'MM/dd/yyyy'}}</p>
-    <p>Next Water: {{plant.next_water}}</p>
+    <p>Last Watered: {{plant.last_water | date : 'shortDate'}}</p>
+    <p>Next Water: {{plant.next_water | date : 'shortDate'}}</p>
     <p>Outdoors? {{plant.outdoors}}</p>
   </div>
+</div>
+<div class='six columns'>
+  <h2>Add Plant:</h2>
+  <div class='form-container' data-plant-form data-plant="PlantIndexViewModel.newPlant"></div>
 </div>

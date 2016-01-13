@@ -17,20 +17,20 @@
     <script src="js/plants/show.controller.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  <body class="container">
     {{#if currentUser}}
-    <header>
+    <header class="row">
       <div>Welcome, {{currentUser.twitter.username}}!</div>
       <div><a href="/logout" target="_self">Logout</a></div>
     </header>
     {{/if}}
-    <main>
+    <main class="row">
       {{{body}}}
     </main>
-    <footer>
+    <footer class="row">
       &copy; chasegruber
     </footer>
   </body>
