@@ -44,7 +44,6 @@ $secondFonts: 'Times',serif;
 }
 
 body{
-  // @include gradient;
   background:$color3;
   font-family: $mainFonts;
   color:$color4;
@@ -56,6 +55,9 @@ a:link,
 a:target,
 a:visited{
   color:$color5;
+}
+h1{
+  text-align: center;
 }
 header,main,footer{
   width:80%;
@@ -73,14 +75,21 @@ header{
   }
 }
 main{
+  @include clearfix;
   h1{
     font-size: 4em;
   }
   h2{
     text-align: center;
   }
+  .columns{
+    width:50%;
+    display:inline-block;
+    float:left;
+  }
 }
 footer{
+  margin-top:3em;
   padding:20px;
   text-align: center;
 }
@@ -91,6 +100,7 @@ footer{
   max-width: 320px;
   margin:0 auto;
   font-size: 1.4em;
+  padding:10px;
   label{
     display:block;
     padding-left:1em;
@@ -116,28 +126,26 @@ footer{
   }
 }
 
-// form{
-//   border:1px solid blue;
-//   display:inline-block;
-//   margin:0 auto;
-//   width:auto;
-//   label{
-//     clear:both;
-//     float:left;
-//   }
-//   input{
-//     float:left;
-//   }
-// }
+.plant-info{
+  padding:10px;
+  p{
+    font-size: 1.4em;
+    a{
+      float:right;
+    }
+  }
+  .plant-name{
+    font-size:1.8em;
+    color:$color5;
+  }
+}
 
-h1{
-  text-align: center;
-}
-h2 a{
-  text-align: center;
-}
-.cf:after{
-  clear:both;
-  content:'';
-  display:table;
+.no-plants{
+  img{
+    height:360px;
+  }
+  p{
+    text-align: center;
+    font-size: 1.4em;
+  }
 }

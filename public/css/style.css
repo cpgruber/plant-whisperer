@@ -12,6 +12,9 @@ a:target,
 a:visited {
   color: #7c3238; }
 
+h1 {
+  text-align: center; }
+
 header, main, footer {
   width: 80%;
   margin: 0 auto; }
@@ -28,12 +31,21 @@ header {
     header div:last-of-type {
       float: right; }
 
+main:after {
+  content: "";
+  display: table;
+  clear: both; }
 main h1 {
   font-size: 4em; }
 main h2 {
   text-align: center; }
+main .columns {
+  width: 50%;
+  display: inline-block;
+  float: left; }
 
 footer {
+  margin-top: 3em;
   padding: 20px;
   text-align: center; }
 
@@ -42,7 +54,8 @@ footer {
   min-width: 160px;
   max-width: 320px;
   margin: 0 auto;
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  padding: 10px; }
   .form-container label {
     display: block;
     padding-left: 1em; }
@@ -69,15 +82,20 @@ footer {
     display: block;
     margin: 0 auto; }
 
-h1 {
-  text-align: center; }
+.plant-info {
+  padding: 10px; }
+  .plant-info p {
+    font-size: 1.4em; }
+    .plant-info p a {
+      float: right; }
+  .plant-info .plant-name {
+    font-size: 1.8em;
+    color: #7c3238; }
 
-h2 a {
-  text-align: center; }
-
-.cf:after {
-  clear: both;
-  content: '';
-  display: table; }
+.no-plants img {
+  height: 360px; }
+.no-plants p {
+  text-align: center;
+  font-size: 1.4em; }
 
 /*# sourceMappingURL=style.css.map */
