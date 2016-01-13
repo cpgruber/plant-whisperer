@@ -19,14 +19,11 @@
         plant: "="
       },
       link: function(scope,el){
-        // scope.populateForm = function(){
-        //   console.log("from populate form")
-          // console.log(scope.plant)
-          // $scope.newPlant = scope.plant;
-        // }
-        // console.log(scope)
-        // console.log(el)
-        // console.log(el[0].getElementsByTagName("a"));
+        scope.formShow = false;
+        scope.showForm = function(){
+          console.log(scope.formShow)
+          scope.formShow = (scope.formShow)?false:true;
+        }
       }
     }
   }
