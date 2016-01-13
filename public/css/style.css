@@ -37,6 +37,38 @@ footer {
   padding: 20px;
   text-align: center; }
 
+.form-container {
+  position: relative;
+  min-width: 160px;
+  max-width: 320px;
+  margin: 0 auto;
+  font-size: 1.4em; }
+  .form-container label {
+    display: block;
+    padding-left: 1em; }
+  .form-container input {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    width: 100%;
+    line-height: 1.6em;
+    margin-bottom: 1em;
+    min-width: 160px;
+    max-width: 320px; }
+    .form-container input[name=outdoors] {
+      width: 20px;
+      height: 20px;
+      vertical-align: top; }
+  .form-container button {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    padding: 3px;
+    display: block;
+    margin: 0 auto; }
+
 h1 {
   text-align: center; }
 

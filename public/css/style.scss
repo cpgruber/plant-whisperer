@@ -85,7 +85,50 @@ footer{
   text-align: center;
 }
 
+.form-container{
+  position:relative;
+  min-width:160px;
+  max-width: 320px;
+  margin:0 auto;
+  font-size: 1.4em;
+  label{
+    display:block;
+    padding-left:1em;
+  }
+  input{
+    @include border-radius(5px);
+    width:100%;
+    line-height: 1.6em;
+    margin-bottom:1em;
+    min-width:160px;
+    max-width:320px;
+    &[name=outdoors]{
+      width:20px;
+      height:20px;
+      vertical-align: top;
+    }
+  }
+  button{
+    @include border-radius(5px);
+    padding:3px;
+    display:block;
+    margin:0 auto;
+  }
+}
 
+// form{
+//   border:1px solid blue;
+//   display:inline-block;
+//   margin:0 auto;
+//   width:auto;
+//   label{
+//     clear:both;
+//     float:left;
+//   }
+//   input{
+//     float:left;
+//   }
+// }
 
 h1{
   text-align: center;

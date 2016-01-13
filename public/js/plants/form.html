@@ -4,16 +4,18 @@
     <input type="text" name="type" data-ng-model="plant.type" />
   </fieldset>
   <fieldset>
-    <label for="type">Watering Frequency:</label>
+    <label for="frequency">Watering Frequency:</label>
     <input type="integer" name="frequency" data-ng-model="plant.frequency" />
   </fieldset>
   <fieldset>
-    <label for="type">Last Watered:</label>
+    <label for="last_watered">Last Watered:</label>
     <input type="date" name="last_water" data-ng-model="plant.last_water"/>
   </fieldset>
   <fieldset>
-    <label for="type">Outdoors?</label>
-    <input type="checkbox" name="outdoors" data-ng-model="plant.outdoors" />
+    <label for="outdoors">
+      <input type="checkbox" name="outdoors" data-ng-model="plant.outdoors" />
+      Outdoors?
+    </label>
   </fieldset>
   <button type="button" data-ng-if="!plant._id" data-ng-click="create()">Create</button>
   <div data-ng-if="plant._id">
