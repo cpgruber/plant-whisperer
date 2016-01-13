@@ -23,7 +23,8 @@
   <body>
     {{#if currentUser}}
     <header>
-      <h2><span>Welcome, {{currentUser.twitter.username}}!</span><a href="/logout" target="_self">Logout</a></h2>
+      <div>Welcome, {{currentUser.twitter.username}}!</div>
+      <div><a href="/logout" target="_self">Logout</a></div>
     </header>
     {{/if}}
     <main>

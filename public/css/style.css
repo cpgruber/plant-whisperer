@@ -4,26 +4,34 @@ body {
   font-family: "Comfortaa", "Arial", sans-serif;
   color: #b7245c; }
 
+a, a:active,
+a:focus,
+a:hover,
+a:link,
+a:target,
+a:visited {
+  color: #7c3238; }
+
 header, main, footer {
   width: 80%;
   margin: 0 auto; }
 
-header:after {
-  content: "";
-  display: table;
-  clear: both; }
+header {
+  font-size: 2em;
+  padding-top: 1em; }
+  header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  header div {
+    display: inline-block; }
+    header div:last-of-type {
+      float: right; }
 
 main h1 {
   font-size: 4em; }
 main h2 {
   text-align: center; }
-main a, main a:active,
-main a:focus,
-main a:hover,
-main a:link,
-main a:target,
-main a:visited {
-  color: #7c3238; }
 
 footer {
   padding: 20px;

@@ -1,8 +1,11 @@
-<h2>New Plant</h2>
+<h2>Add Plant</h2>
 <div data-plant-form data-plant="PlantIndexViewModel.newPlant"></div>
 
-<h2>These are all the Plants</h2>
-
+<h2>Your Plants:</h2>
+<div data-ng-show="PlantIndexViewModel.plants.length==0">
+  <p>You have no plants.</p>
+  <img src="assets/cactus.gif" alt="cactus gif" />
+</div>
 <div data-ng-repeat="plant in PlantIndexViewModel.plants | orderBy:'-created_at'">
   <p><a data-ui-sref="plantShow({id: plant._id})">{{plant.type}}</a></p>
   <p>Watering Freq: {{plant.frequency}}</p>

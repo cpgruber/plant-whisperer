@@ -1,3 +1,4 @@
+// sass --watch public/css/style.scss:public/css/style.css
 @import url(https://fonts.googleapis.com/css?family=Comfortaa);
 $color1: #002500; //rgba(0, 37, 0, 100)
 $color2: #929982; //rgba(146, 153, 130, 100)
@@ -7,6 +8,26 @@ $color5: #7c3238; //rgba(124, 50, 56, 100)
 
 $mainFonts:'Comfortaa', 'Arial',sans-serif;
 $secondFonts: 'Times',serif;
+
+@function mixColors($first,$second,$pct,$max){
+  $str: ();
+  @for $i from 0 through $pct{
+    $str:append($str,$first,comma)
+  }
+  $rest: $max - $pct;
+  @for $i from 0 through $rest{
+    $str:append($str,$second,comma)
+  }
+  @return $str;
+}
+
+@mixin gradient{
+  background: $color2; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(mixColors($color3,$color2,35,45)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(mixColors($color3,$color2,35,45)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(mixColors($color3,$color2,35,45)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(mixColors($color3,$color2,35,45)); /* Standard syntax */
+}
 
 @mixin clearfix{
   &:after {
@@ -23,9 +44,18 @@ $secondFonts: 'Times',serif;
 }
 
 body{
+  // @include gradient;
   background:$color3;
   font-family: $mainFonts;
   color:$color4;
+}
+a,a:active,
+a:focus,
+a:hover,
+a:link,
+a:target,
+a:visited{
+  color:$color5;
 }
 header,main,footer{
   width:80%;
@@ -33,6 +63,14 @@ header,main,footer{
 }
 header{
   @include clearfix;
+  font-size: 2em;
+  padding-top:1em;
+  div{
+    display:inline-block;
+    &:last-of-type{
+      float:right;
+    }
+  }
 }
 main{
   h1{
@@ -40,14 +78,6 @@ main{
   }
   h2{
     text-align: center;
-  }
-  a,a:active,
-  a:focus,
-  a:hover,
-  a:link,
-  a:target,
-  a:visited{
-    color:$color5;
   }
 }
 footer{
