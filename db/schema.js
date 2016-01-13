@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/plant-whisperer");
+mongoose.connect(process.env.MONGOLAB_URI||"mongodb://localhost/plant-whisperer");
 
 var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId
