@@ -27,7 +27,8 @@ var plantsController = {
         last_water: moment(req.body.last_water),
         next_water: moment(req.body.last_water).add(req.body.frequency,'minutes'),
         outdoors: req.body.outdoors?req.body.outdoors:false,
-        owner: req.user.twitter.username
+        owner: req.user.twitter.username,
+        zipcode: req.body.zipcode
       }
       var newPlant = new Plant(plantObj);
       user.plants.push(newPlant._id);
@@ -48,6 +49,7 @@ var plantsController = {
       plant.last_water = req.body.last_water;
       plant.next_water= moment(req.body.last_water).add(req.body.frequency, 'days');
       plant.outdoors= req.body.outdoors?req.body.outdoors:false;
+      plant.zipcode = req.body.zipcode;
       plant.save(function(err){
         if(!err){
           res.json(plant)

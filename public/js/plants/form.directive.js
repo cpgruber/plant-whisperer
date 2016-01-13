@@ -15,7 +15,7 @@
       scope: {
         plant: "="
       },
-      link: function(scope){
+      link: function(scope,elm, attrs, ctrl){
         scope.create = function(){
           scope.plant.$save(function(response){
             $state.go("plantsIndex", {}, {reload: true});

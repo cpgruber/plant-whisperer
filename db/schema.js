@@ -11,7 +11,8 @@ var PlantSchema = new Schema({
   last_water: String,
   next_water: String,
   outdoors: Boolean,
-  owner: String
+  owner: String,
+  zipcode:Number
 });
 
 var UserSchema = new Schema({
