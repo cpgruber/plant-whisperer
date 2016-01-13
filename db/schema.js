@@ -8,6 +8,7 @@ var PlantSchema = new Schema({
   createdAt: Date,
   type: String,
   frequency: Number,
+  interval:String,
   last_water: String,
   next_water: String,
   outdoors: Boolean,

@@ -24,6 +24,7 @@ var plantsController = {
         createdAt: Date(),
         type:req.body.type,
         frequency: req.body.frequency,
+        interval: req.body.interval,
         last_water: moment(req.body.last_water),
         next_water: moment(req.body.last_water).add(req.body.frequency,'minutes'),
         outdoors: req.body.outdoors?req.body.outdoors:false,
@@ -46,6 +47,7 @@ var plantsController = {
     Plant.findById(req.params.id, function(err, plant){
       plant.type = req.body.type;
       plant.frequency = req.body.frequency;
+      plant.interval = req.body.interval;
       plant.last_water = req.body.last_water;
       plant.next_water= moment(req.body.last_water).add(req.body.frequency, 'days');
       plant.outdoors= req.body.outdoors?req.body.outdoors:false;
