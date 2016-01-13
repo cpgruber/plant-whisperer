@@ -12,16 +12,13 @@
 
   function ShowDirectiveFunction($state,$stateParams,PlantFactory){
     return {
-      template:"<p>{{plant.type}}</p>",
+      templateUrl:"js/plants/_plant_show.html",
       replace: true,
       restrict:"A",
       scope:{
         plant: "="
       },
       link: function(scope,el){
-        console.log(scope)
-        // scope.plant = PlantFactory.get({id: scope.plant._id});
-        // scope.plant = "CHASASAS"
         scope.showBody = false;
         scope.arrow = '\u2193';
         scope.toggleShow = function(){

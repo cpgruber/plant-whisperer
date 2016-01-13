@@ -7,10 +7,6 @@
   <div class='plant-info' data-ng-repeat="plant in PlantIndexViewModel.plants | orderBy:'-next_water'">
     <p class='plant-name'>{{plant.type}}<a data-ui-sref="plantShow({id: plant._id})">Edit</a></p>
     <div data-show-directive data-plant="plant"></div>
-    <!-- <p>Watering Freq: Every {{plant.frequency}} {{plant.interval}}</p>
-    <p>Last Watered: {{plant.last_water | date : 'shortDate'}}</p>
-    <p>Next Water: {{plant.next_water | date : 'shortDate'}}</p>
-    <p>Outdoors? {{plant.outdoors}}</p> -->
   </div>
 </div>
 <div class='six columns'>
