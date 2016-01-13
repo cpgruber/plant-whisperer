@@ -1,9 +1,9 @@
 <div>
   <p class='plant-name'>{{plant.type}}
-    <a data-ng-click="showForm()" href="#">Edit</a>
+    <a data-ng-click="showForm()" data-ng-hide="formShow" href="#">Edit</a>
   </p>
   <div data-ng-show="formShow">
-    <div data-plant-form data-plant="plant"></div>
+    <div class='form-container edit-container' data-plant-form data-plant="plant"></div>
   </div>
   <div data-ng-hide="formShow">
     <p>Watering Freq: Every {{plant.frequency}} {{plant.interval}}</p>

@@ -45,6 +45,8 @@ footer {
   font-size: 1.4em;
   padding: 10px;
   text-align: center; }
+  .form-container fieldset {
+    margin: 0; }
   .form-container label {
     display: block; }
   .form-container input {
@@ -97,6 +99,17 @@ footer {
       content: '^'; }
     .form-container .invalid:after {
       content: '^'; }
+  .form-container.edit-container {
+    text-align: left;
+    font-size: 1.2em; }
+    .form-container.edit-container input {
+      line-height: 1.4em; }
+    .form-container.edit-container .invalid {
+      margin: 0; }
+    .form-container.edit-container button {
+      display: inline-block;
+      float: left;
+      margin: 0 0.2em; }
 
 .plant-info {
   padding: 10px; }

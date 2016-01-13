@@ -21,11 +21,11 @@
       controller: "PlantIndexController",
       controllerAs: "PlantIndexViewModel"
     })
-    .state("plantShow", {
-      url: "/plants/:id",
-      templateUrl: "js/plants/show.html",
-      controller: "PlantShowController",
-      controllerAs: "PlantShowViewModel"
-    });
+    // .state("plantShow", {
+    //   url: "/plants/:id",
+    //   templateUrl: "js/plants/show.html",
+    //   controller: "PlantShowController",
+    //   controllerAs: "PlantShowViewModel"
+    // });
   }
 }());

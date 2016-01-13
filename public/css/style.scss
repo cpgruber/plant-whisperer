@@ -1,10 +1,10 @@
 // sass --watch public/css/style.scss:public/css/style.css
 @import url(https://fonts.googleapis.com/css?family=Comfortaa);
-$color1: #002500; //rgba(0, 37, 0, 100)
-$color2: #929982; //rgba(146, 153, 130, 100)
-$color3: #edcbb1; //rgba(237, 203, 177, 100)
-$color4: #b7245c; //rgba(183, 36, 92, 100)
-$color5: #7c3238; //rgba(124, 50, 56, 100)
+$color1: #002500;
+$color2: #929982;
+$color3: #edcbb1;
+$color4: #b7245c;
+$color5: #7c3238;
 
 $mainFonts:'Comfortaa', 'Arial',sans-serif;
 $secondFonts: 'Times',serif;
@@ -84,10 +84,14 @@ footer{
   padding:20px;
   text-align: center;
 }
+
 .form-container{
   font-size: 1.4em;
   padding:10px;
   text-align: center;
+  fieldset{
+    margin:0;
+  }
   label{
     display:block;
   }
@@ -143,7 +147,23 @@ footer{
       content:'^';
     }
   }
+  &.edit-container{
+    text-align: left;
+    font-size:1.2em;
+    input{
+      line-height:1.4em;
+    }
+    .invalid{
+      margin:0;
+    }
+    button{
+      display:inline-block;
+      float:left;
+      margin:0 0.2em;
+    }
+  }
 }
+
 .plant-info{
   padding:10px;
   p{
