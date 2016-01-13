@@ -21,7 +21,6 @@
       link: function(scope,el){
         scope.formShow = false;
         scope.showForm = function(){
-          console.log(scope.formShow)
           scope.formShow = (scope.formShow)?false:true;
         }
       }

@@ -23,7 +23,6 @@
         }
         scope.update = function(){
           scope.plant.$update({id: scope.plant._id}, function(response){
-            console.log(response);
             $state.go("plantsIndex", {}, {reload: true});
           });
         }
@@ -35,9 +34,6 @@
         scope.cancel = function(){
           $state.go("plantsIndex", {}, {reload: true});
         }
-        // scope.populate = function(){
-        //   console.log("populate")
-        // }
       }
     }
   }
