@@ -11,7 +11,7 @@
   function PlantFactoryFunction($resource){
     var baseURL = window.location.href;
     console.log(baseURL)
-    return $resource(baseURL+"plants/:id.json", {}, {
+    return $resource(baseURL+"/:id.json", {}, {
       update: {method: "PUT"}
     });
   }
