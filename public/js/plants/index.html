@@ -5,7 +5,6 @@
     <img src="assets/cactus.gif" alt="cactus gif" />
   </div>
   <div class='plant-info' data-ng-repeat="plant in PlantIndexViewModel.plants | orderBy:'-next_water'">
-    <p class='plant-name'>{{plant.type}}<a data-ui-sref="plantShow({id: plant._id})">Edit</a></p>
     <div data-show-directive data-plant="plant"></div>
   </div>
 </div>

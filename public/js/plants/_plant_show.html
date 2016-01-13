@@ -1,6 +1,11 @@
 <div>
+  <p class='plant-name'>{{plant.type}}
+    <!-- <a data-ng-click="PlantIndexViewModel.populate(plant)" href="#">Edit</a>
+    <a data-ng-click="populate()" href="#">Edit</a> -->
+    <a data-ui-sref="plantShow({id: plant._id})">Edit</a>
+  </p>
   <p>Watering Freq: Every {{plant.frequency}} {{plant.interval}}</p>
   <p>Last Watered: {{plant.last_water | date : 'shortDate'}}</p>
   <p>Next Water: {{plant.next_water | date : 'shortDate'}}</p>
-  <p>Outdoors? {{plant.outdoors}}</p>  
+  <p>Outdoors? {{plant.outdoors}}</p>
 </div>

@@ -11,11 +11,11 @@
 
   function PlantFormDirectiveFunction(PlantFactory, $state){
     return{
-      templateUrl: "js/plants/form.html",
+      templateUrl: "js/plants/_plant_form.html",
       scope: {
         plant: "="
       },
-      link: function(scope,elm, attrs, ctrl){
+      link: function(scope){
         scope.create = function(){
           scope.plant.$save(function(response){
             $state.go("plantsIndex", {}, {reload: true});
@@ -31,10 +31,13 @@
           scope.plant.$delete({id: scope.plant._id}, function(){
             $state.go("plantsIndex", {}, {reload: true});
           });
-        },
+        }
         scope.cancel = function(){
           $state.go("plantsIndex", {}, {reload: true});
         }
+        // scope.populate = function(){
+        //   console.log("populate")
+        // }
       }
     }
   }
