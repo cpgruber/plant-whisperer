@@ -9,7 +9,9 @@
   ]);
 
   function PlantFactoryFunction($resource){
-    return $resource("http://127.0.0.1:3000/plants/:id.json", {}, {
+    var baseURL = window.location.href;
+    console.log(baseURL)
+    return $resource(baseURL+"plants/:id.json", {}, {
       update: {method: "PUT"}
     });
   }
