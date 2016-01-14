@@ -35,6 +35,9 @@ main h1 {
   font-size: 4em; }
 main h2 {
   text-align: center; }
+main img {
+  display: block;
+  margin: 0 auto; }
 
 footer {
   margin-top: 3em;
@@ -127,10 +130,12 @@ footer {
     font-size: 1.8em;
     color: #7c3238; }
 
-.no-plants img {
-  width: 100%; }
-.no-plants p {
-  text-align: center;
-  font-size: 1.4em; }
+.no-plants {
+  text-align: center; }
+  .no-plants img {
+    width: 70%; }
+  .no-plants p {
+    text-align: center;
+    font-size: 1.4em; }
 
 /*# sourceMappingURL=style.css.map */

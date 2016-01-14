@@ -78,6 +78,10 @@ main{
   h2{
     text-align: center;
   }
+  img{
+    display:block;
+    margin: 0 auto;
+  }
 }
 footer{
   margin-top:3em;
@@ -186,8 +190,9 @@ footer{
   }
 }
 .no-plants{
+  text-align: center;
   img{
-    width:100%;
+    width:70%;
   }
   p{
     text-align: center;
