@@ -8,7 +8,9 @@ var TweetSchema = new Schema({
   createdAt: Date,
   tweetID: String,
   response: Boolean,
-  need: String
+  need: String,
+  myID: String,
+  recipientID: String
 })
 
 var PlantSchema = new Schema({

@@ -14,20 +14,24 @@ var Bot = new Twit({
 });
 
 //first check for plants that need reminders
-var now = moment();
-Plant.find({'next_water':{
-  "$lte":now.toDate()
-}}, function (err, docs){
-  docs.forEach(function(doc){
-    //then tweet reminder
-    postReminder(doc);
-  })
-})
+function remind(){
+  var now = moment();
+  Plant.find({'next_water':{
+    "$lte":now.toDate()
+  }}, function (err, plants){
+    plants.forEach(function(plant){
+      console.log("posting tweet...")
+      postReminder(plant);
+    });
+  });
+}
 
 function makeTweet(tweetData){
   return new Tweet({
     createdAt: new Date(),
     tweetID: tweetData.id_str,
+    myID: tweetData.user.id_str,
+    recipientID:tweetData.entities.user_mentions[0].id_str,
     response: false,
     need: "water"
   })
@@ -35,17 +39,40 @@ function makeTweet(tweetData){
 
 //then tweet reminders
 function postReminder(plantDoc){
-  var content = "Hey @"+plantDoc.owner+"! Water your "+plantDoc.type+"! 💧🌱"
+  var content = "Hey @"+plantDoc.owner+"! Water your "+plantDoc.type+", please! 💧🌱"
   Bot.post('statuses/update', {status: content}, function (err,data,response){
     if (err) return err;
     var tweet = makeTweet(data);
     plantDoc.tweets.push(tweet);
     plantDoc.save(function(err){
+      console.log("tweet posted!")
       if (err) console.log(err);
     })
-
   })
 }
+
+function checkResponse(){
+  Plant.find({},function(err,plants){
+    plants.forEach(function(plant){
+      var tweets = plant.tweets.sort(function(b,a){return a.createdAt - b.createdAt});
+      var lastTweet = tweets[0];
+      // console.log(lastTweet)
+      if (lastTweet){
+        Bot.get('search/tweets',{q:"@Your_Plants",in_reply_to_status_id:lastTweet.tweetID,}, function(err, data, response) {
+          var text = data.statuses[0].text;
+          var tweetUserId = data.statuses[0].user.id_str;
+          // console.log(text.indexOf("💧"))
+          if (text.indexOf("💧") > -1 && tweetUserId == lastTweet.recipientID){
+            console.log("thank you! resetting your interval")
+          }
+        })
+      }
+    })
+  })
+}
+
+// remind();
+checkResponse();
 
 //then check latest tweets for each plant where response is false
 //then check if these tweets have responses from their owner
