@@ -22,6 +22,7 @@
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.3",
     "time": "^0.11.4",
-    "twit": "^2.1.1"
+    "twit": "^2.1.1",
+    "wundergroundnode": "^0.9.0"
   }
 }
