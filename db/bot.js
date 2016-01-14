@@ -14,20 +14,31 @@ var Bot = new Twit({
 
 function post (content) {
   Bot.post('statuses/update', { status: content }, function(err, data, response) {
+    if (err){console.log(err)}
     console.log("tweeted!")
   })
 }
 
 var now = moment();
-// Plant.find({'next_water':{
-//   "$lte":now.toDate()
-// }}, function (err, docs){
-//   docs.forEach(function(doc){
-//     var tweet = "Hey @"+doc.owner+"! Water your "+doc.type+"!";
-//     console.log(tweet)
-//     post(tweet)
-//   })
-// })
+Plant.find({'next_water':{
+  "$lte":now.toDate()
+}}, function (err, docs){
+  docs.forEach(function(doc){
+    var tweet = "Hey @"+doc.owner+"! Water your "+doc.type+"!";
+    console.log(tweet);
+    post(tweet);
+    // console.log(doc)
+    // if (doc.outdoors){
+    //   getWeather(doc.zip).then(function(temp){
+    //     console.log("Hey @"+doc.owner+"! Your "+doc.type+" is outside and thirsty")
+    //   })
+    // }else{
+    //   var tweet = "Hey @"+doc.owner+"! Water your "+doc.type+"!";
+    //   console.log(tweet)
+    // }
+    // post(tweet)
+  })
+})
 
 function getWeather(zip){
   var w = new Weather(env.wunderground);
@@ -38,7 +49,7 @@ function getWeather(zip){
   })
 }
 
-getWeather(20001).then(function(temp){
-  console.log("****************************")
-  console.log("The temp is "+temp)
-})
+// getWeather(20001).then(function(temp){
+//   console.log("****************************")
+//   console.log("The temp is "+temp)
+// })
