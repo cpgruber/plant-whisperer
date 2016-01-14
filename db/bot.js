@@ -1,6 +1,7 @@
 var fs = require("fs");
 var env = fs.existsSync("./env.js") ? require("../env") : process.env;
 var Plant = require("../models/plant")
+var Tweet = require("../models/tweet")
 var Twit = require('twit');
 var moment = require("moment");
 var Weather = require('wundergroundnode');
@@ -12,10 +13,36 @@ var Bot = new Twit({
   access_token_secret: env.tokenSecret
 });
 
-function post (content) {
+//first check for plants that need reminders
+//then tweet reminders
+//then check latest tweets for each plant where response is false
+//then check if these tweets have responses from their owner
+//if yes, reset interval
+//if no, set timer for next reminder
+
+function post (plant,content) {
   Bot.post('statuses/update', { status: content }, function(err, data, response) {
     if (err){console.log(err)}
+    // console.log(data);
     console.log("tweeted!")
+    var tweet = new Tweet({
+      createdAt: new Date(),
+      tweetID: data.id_str,
+      response: false,
+      need: "water"
+    });
+    plant.tweets.push(tweet);
+    plant.save(function(err){
+      if (err){
+        console.log(err)
+      }
+    })
+  })
+}
+
+function reply (reply_id) {
+  Bot.post('statuses/update', { status: "Thanks!", in_reply_to_status_id: reply_id }, function(err, data, response) {
+    console.log("tweeted reply!")
   })
 }
 
@@ -24,19 +51,9 @@ Plant.find({'next_water':{
   "$lte":now.toDate()
 }}, function (err, docs){
   docs.forEach(function(doc){
-    var tweet = "Hey @"+doc.owner+"! Water your "+doc.type+"!";
-    console.log(tweet);
-    post(tweet);
-    // console.log(doc)
-    // if (doc.outdoors){
-    //   getWeather(doc.zip).then(function(temp){
-    //     console.log("Hey @"+doc.owner+"! Your "+doc.type+" is outside and thirsty")
-    //   })
-    // }else{
-    //   var tweet = "Hey @"+doc.owner+"! Water your "+doc.type+"!";
-    //   console.log(tweet)
-    // }
-    // post(tweet)
+    var content = "Hey @"+doc.owner+"! Water your "+doc.type+"! 🌱";
+    console.log(content);
+    post(doc,content);
   })
 })
 
@@ -48,8 +65,3 @@ function getWeather(zip){
     })
   })
 }
-
-// getWeather(20001).then(function(temp){
-//   console.log("****************************")
-//   console.log("The temp is "+temp)
-// })

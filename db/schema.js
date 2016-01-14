@@ -4,6 +4,13 @@ mongoose.connect(process.env.MONGOLAB_URI||"mongodb://localhost/plant-whisperer"
 var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId
 
+var TweetSchema = new Schema({
+  createdAt: Date,
+  tweetID: String,
+  response: Boolean,
+  need: String
+})
+
 var PlantSchema = new Schema({
   createdAt: Date,
   type: String,
@@ -13,7 +20,8 @@ var PlantSchema = new Schema({
   next_water: String,
   outdoors: Boolean,
   owner: String,
-  zipcode:Number
+  zipcode:Number,
+  tweets:[TweetSchema]
 });
 
 var UserSchema = new Schema({
@@ -32,3 +40,4 @@ var UserSchema = new Schema({
 
 mongoose.model("User", UserSchema);
 mongoose.model("Plant", PlantSchema);
+mongoose.model("Tweet",TweetSchema);
