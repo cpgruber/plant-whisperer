@@ -29,10 +29,16 @@ var now = moment();
 //   })
 // })
 
-var w = new Weather(env.wunderground);
-w.conditions().request('20008', function(err, response){
-    console.log(response);
-})
+function getWeather(zip){
+  var w = new Weather(env.wunderground);
+  return new Promise(function(resolve,reject){
+    w.conditions().request(zip, function(err, response){
+      resolve(response.current_observation.temp_f);
+    })
+  })
+}
 
-//find all plants with next_water after now, tweet at the owners of those plants;
-//Plant.find({next_water})
+getWeather(20001).then(function(temp){
+  console.log("****************************")
+  console.log("The temp is "+temp)
+})
