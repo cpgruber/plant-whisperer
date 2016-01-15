@@ -48,8 +48,8 @@ var plantsController = {
       plant.type = req.body.type;
       plant.frequency = req.body.frequency;
       plant.interval = req.body.interval;
-      plant.last_water = req.body.last_water;
-      plant.next_water= moment(req.body.last_water).add(req.body.frequency, req.body.interval);
+      plant.last_water = moment(req.body.last_water);
+      plant.next_water = moment(req.body.last_water).add(req.body.frequency,req.body.interval);
       // plant.outdoors= req.body.outdoors?req.body.outdoors:false;
       // plant.zipcode = req.body.zipcode;
       plant.save(function(err){
