@@ -7,8 +7,6 @@ var Schema = mongoose.Schema,
 var TweetSchema = new Schema({
   createdAt: Date,
   tweetID: String,
-  response: Boolean,
-  need: String,
   myID: String,
   recipientID: String
 })
@@ -18,11 +16,11 @@ var PlantSchema = new Schema({
   type: String,
   frequency: Number,
   interval:String,
-  last_water: String,
-  next_water: String,
-  outdoors: Boolean,
+  last_water: Date,
+  next_water: Date,
+  // outdoors: Boolean,
   owner: String,
-  zipcode:Number,
+  // zipcode:Number,
   tweets:[TweetSchema]
 });
 

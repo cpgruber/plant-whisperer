@@ -27,7 +27,7 @@
       <span data-ng-show="plantForm.last_water.$error.required">Last Watered date is required. (It's ok to guess)</span>
     </span>
   </fieldset>
-  <fieldset>
+  <!-- <fieldset>
     <label for="zipcode">Zipcode:</label>
     <input required type="number" name="zipcode" data-ng-model="plant.zipcode" data-ng-minlength="5" data-ng-maxlength="5"/>
     <span class='invalid' data-ng-show="plantForm.zipcode.$dirty && plantForm.zipcode.$invalid">
@@ -41,7 +41,7 @@
       <input type="checkbox" name="outdoors" data-ng-model="plant.outdoors" />
       Outdoors?
     </label>
-  </fieldset>
+  </fieldset> -->
 
   <button type="button" data-ng-if="!plant._id" data-ng-click="create()" ng-disabled="plantForm.$invalid">Create</button>
   <div data-ng-if="plant._id">
