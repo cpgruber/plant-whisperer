@@ -75,12 +75,18 @@ main{
   h1{
     font-size: 4em;
   }
-  h2{
+  h2,h3{
     text-align: center;
   }
   img{
-    display:block;
+    display:inline-block;
     margin: 0 auto;
+    width:35%;
+  }
+  iframe{
+    width:60%;
+    height:400px;
+    display:inline-block;
   }
 }
 footer{

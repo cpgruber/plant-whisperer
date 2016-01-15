@@ -33,11 +33,16 @@ main:after {
   clear: both; }
 main h1 {
   font-size: 4em; }
-main h2 {
+main h2, main h3 {
   text-align: center; }
 main img {
-  display: block;
-  margin: 0 auto; }
+  display: inline-block;
+  margin: 0 auto;
+  width: 35%; }
+main iframe {
+  width: 60%;
+  height: 400px;
+  display: inline-block; }
 
 footer {
   margin-top: 3em;
