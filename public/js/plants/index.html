@@ -4,7 +4,7 @@
     <p>You have no plants.</p>
     <img src="assets/cactus.gif" alt="cactus gif" />
   </div>
-  <div class='plant-info' data-ng-repeat="plant in PlantIndexViewModel.plants | orderBy:'-next_water'">
+  <div class='plant-info' data-ng-repeat="plant in PlantIndexViewModel.plants | orderBy:'next_water'">
     <div data-show-directive data-plant="plant"></div>
   </div>
 </div>
