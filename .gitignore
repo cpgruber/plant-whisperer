@@ -1,3 +1,4 @@
 env.js
 node_modules
 .sass-cache
+.sass-cache/*
