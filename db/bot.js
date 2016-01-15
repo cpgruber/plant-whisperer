@@ -43,7 +43,7 @@ function resetInterval(plantDoc){
   plantDoc.next_water= moment().add(plantDoc.frequency,plantDoc.interval)
   plantDoc.save(function(err){
     if (!err){
-      console.log("plant saved")
+      console.log("new interval saved")
     }
   })
 }

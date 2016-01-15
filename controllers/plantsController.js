@@ -24,9 +24,9 @@ var plantsController = {
         createdAt: Date(),
         type:req.body.type,
         frequency: req.body.frequency,
-        interval: "minutes",//req.body.interval,
+        interval: req.body.interval,
         last_water: moment(req.body.last_water),
-        next_water: moment(req.body.last_water).add(req.body.frequency,"minutes"),//req.body.interval),
+        next_water: moment(req.body.last_water).add(req.body.frequency,req.body.interval),
         // outdoors: req.body.outdoors?req.body.outdoors:false,
         owner: req.user.twitter.username//,
         // zipcode: req.body.zipcode
@@ -49,7 +49,7 @@ var plantsController = {
       plant.frequency = req.body.frequency;
       plant.interval = req.body.interval;
       plant.last_water = req.body.last_water;
-      plant.next_water= moment(req.body.last_water).add(req.body.frequency, 'minutes');
+      plant.next_water= moment(req.body.last_water).add(req.body.frequency, req.body.interval);
       // plant.outdoors= req.body.outdoors?req.body.outdoors:false;
       // plant.zipcode = req.body.zipcode;
       plant.save(function(err){
